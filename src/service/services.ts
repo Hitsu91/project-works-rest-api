@@ -4,18 +4,35 @@ import {
   Collections,
   CollectionType,
 } from '../../utils/collections';
-import { IngredientService, makeIngredientService } from './ingredient.service';
+import { CategoryService, makeCategoryService } from './category.service';
+import { makeNewsService, NewsService } from './news.service';
+import { makeReviewService, ReviewService } from './review.service';
+import { makeVideogameService, VideogameService } from './videogame.service';
 
 type ServiceMap<ServiceT> = { [key in CollectionType]: ServiceT };
 
-const ingredientServices: ServiceMap<IngredientService> = makeService(
-  makeIngredientService
-);
+const newsServices: ServiceMap<NewsService> = makeService(makeNewsService);
+const categoryServices: ServiceMap<CategoryService> =
+  makeService(makeCategoryService);
+const videogamesServices: ServiceMap<VideogameService> =
+  makeService(makeVideogameService);
+const reviewsService: ServiceMap<ReviewService> =
+  makeService(makeReviewService);
 
-function getIngredientService(
-  req: Request<CollectionParam>
-): IngredientService {
-  return getService(req, ingredientServices);
+function getNewsService(req: Request<CollectionParam>): NewsService {
+  return getService(req, newsServices);
+}
+
+function getCategoryService(req: Request<CollectionParam>): CategoryService {
+  return getService(req, categoryServices);
+}
+
+function getVideogameService(req: Request<CollectionParam>): VideogameService {
+  return getService(req, videogamesServices);
+}
+
+function getReviewService(req: Request<CollectionParam>): ReviewService {
+  return getService(req, reviewsService);
 }
 
 function getService<T>(
@@ -37,4 +54,10 @@ function makeService<T>(fn: (collectionName: string) => T): ServiceMap<T> {
   return service as ServiceMap<T>;
 }
 
-export { getIngredientService, ServiceMap };
+export {
+  getNewsService,
+  getCategoryService,
+  getVideogameService,
+  getReviewService,
+  ServiceMap,
+};

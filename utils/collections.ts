@@ -1,9 +1,9 @@
 const Collections = [
-  'group-i',
-  'group-ii',
-  'group-iii',
-  'group-iv',
-  'group-v',
+  'GROUP-I',
+  'GROUP-II',
+  'GROUP-III',
+  'GROUP-IV',
+  'GROUP-V',
 ] as const;
 
 type CollectionType = typeof Collections[number];
