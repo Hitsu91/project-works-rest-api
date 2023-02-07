@@ -14,6 +14,15 @@ export async function getNewsHandler(
   res.send(categories);
 }
 
+export async function getNewsByIdHandler(
+  req: Request<{ id: string } & CollectionParam>,
+  res: Response<News | null>
+) {
+  const service = getNewsService(req);
+  const id = req.params.id;
+  res.send(await service.getNewsById(id));
+}
+
 export async function addNewsHandler(
   req: Request<CollectionParam, {}, PostNewsInput>,
   res: Response<News[] | string>

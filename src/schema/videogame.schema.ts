@@ -16,10 +16,10 @@ export const VideogameSchema = object({
   }),
   softwareHouse: string({ required_error: 'Software House is required' }),
   publisher: string({ required_error: 'Publisher is required' }),
-  numberOfPlayer: number({
+  numberOfPlayers: number({
     required_error: 'Number of Player is required',
   }),
-  langueges: object({
+  languages: object({
     voice: string().array().optional(),
     text: string().array().optional(),
   }),

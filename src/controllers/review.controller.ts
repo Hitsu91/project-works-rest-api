@@ -13,6 +13,14 @@ export async function getReviewHandler(
   const categories = await service.getAllReview();
   res.send(categories);
 }
+export async function getReviewByIdHandler(
+  req: Request<{ id: string } & CollectionParam>,
+  res: Response<Review | null>
+) {
+  const service = getReviewService(req);
+  const id = req.params.id;
+  res.send(await service.getReviewById(id));
+}
 
 export async function addReviewHandler(
   req: Request<CollectionParam, {}, PostReviewInput>,

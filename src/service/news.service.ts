@@ -10,6 +10,9 @@ const makeNewsService = (collectionName: string) => {
     getAllNews() {
       return NewsModel.find();
     },
+    getNewsById(id: string) {
+      return NewsModel.findById(id);
+    },
     updateNews(id: string, input: Partial<PostNewsInput>) {
       return NewsModel.findByIdAndUpdate(id, input);
     },

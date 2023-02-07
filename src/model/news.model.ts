@@ -15,7 +15,7 @@ export class News {
   content: string;
 
   @prop({ required: true })
-  pubblicationDate: string;
+  publicationDate: string;
 
   @prop({ required: true })
   authorName: string;

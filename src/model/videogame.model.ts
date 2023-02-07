@@ -32,7 +32,7 @@ export class Videogame {
   publisher: string;
 
   @prop()
-  numberOfPlayer: number;
+  numberOfPlayers: number;
 
   @prop({ _id: false })
   languages: VideogameLanguage;

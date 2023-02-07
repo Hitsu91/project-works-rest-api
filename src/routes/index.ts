@@ -14,4 +14,8 @@ router.use(news);
 router.use(videogame);
 router.use(review);
 
+router.use((_, res) => {
+  return res.status(404).send({ error: 'Not found' });
+});
+
 export default router;

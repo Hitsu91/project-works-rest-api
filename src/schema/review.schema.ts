@@ -13,6 +13,7 @@ export const ReviewSchema = object({
     required_error: 'Name of Reviewer is required',
   }),
   imageUrls: string().array().optional(),
+  reviewedGame: object({ id: string(), name: string() }),
 });
 
 export type PostReviewInput = TypeOf<typeof ReviewSchema>;

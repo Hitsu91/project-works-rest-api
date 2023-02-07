@@ -10,6 +10,9 @@ const makeReviewService = (collectionName: string) => {
     getAllReview() {
       return ReviewModel.find();
     },
+    getReviewById(id: string) {
+      return ReviewModel.findById(id);
+    },
     updateReview(id: string, input: Partial<PostReviewInput>) {
       return ReviewModel.findByIdAndUpdate(id, input);
     },

@@ -7,6 +7,9 @@ const makeCategoryService = (collectionName: string) => {
     insert(input: Partial<PostCategoryInput>) {
       return Model.create(input);
     },
+    getById(id: string) {
+      return Model.findById(id);
+    },
     getAll() {
       return Model.find();
     },

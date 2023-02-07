@@ -14,6 +14,16 @@ export async function getCategoriesHandler(
   res.send(categories);
 }
 
+export async function getCategoryByIdHandler(
+  req: Request<{ id: string } & CollectionParam>,
+  res: Response<Category | null>
+) {
+  const service = getCategoryService(req);
+  const id = req.params.id;
+  const category = await service.getById(id);
+  res.send(category);
+}
+
 export async function addCategoryHandler(
   req: Request<CollectionParam, {}, PostCategoryInput>,
   res: Response<Category[] | string>

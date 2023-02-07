@@ -10,6 +10,9 @@ const makeVideogameService = (collectionName: string) => {
     getAllVideogame() {
       return VideogameModel.find();
     },
+    getVideogameById(id: string) {
+      return VideogameModel.findById(id);
+    },
     updateVideogame(id: string, input: Partial<PostVideogameInput>) {
       return VideogameModel.findByIdAndUpdate(id, input);
     },

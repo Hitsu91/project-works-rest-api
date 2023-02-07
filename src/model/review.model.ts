@@ -1,6 +1,14 @@
 import { prop } from '@typegoose/typegoose';
 import { getModelForClassOfCollection } from '../../utils/model-for-class-collection';
 
+class ReviewedGame {
+  @prop()
+  id: string;
+
+  @prop()
+  name: string;
+}
+
 export class Review {
   @prop({ required: true })
   title: string;
@@ -19,6 +27,9 @@ export class Review {
 
   @prop({ type: String })
   imageUrls: string[];
+
+  @prop({ _id: false })
+  reviewedGame: ReviewedGame;
 }
 
 const makeReviewModel = (collectionName: string) =>

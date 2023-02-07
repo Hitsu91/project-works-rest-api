@@ -14,6 +14,16 @@ export async function getVideogameHandler(
   res.send(categories);
 }
 
+export async function getVideogameByIdHandler(
+  req: Request<{ id: string } & CollectionParam>,
+  res: Response<Videogame | null>
+) {
+  const service = getVideogameService(req);
+  const id = req.params.id;
+  const categories = await service.getVideogameById(id);
+  res.send(categories);
+}
+
 export async function addVideogameHandler(
   req: Request<CollectionParam, {}, PostVideogameInput>,
   res: Response<Videogame[] | string>
