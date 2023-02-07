@@ -7,6 +7,7 @@ import {
 } from '../controllers/ingredient.controller';
 import validateResourse from '../middleware/validateResourse';
 import { IngredientSchema } from '../schema/ingredient.schema';
+
 const router = express.Router();
 const validateIngredients = validateResourse(IngredientSchema);
 

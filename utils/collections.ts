@@ -8,8 +8,6 @@ const Collections = [
 
 type CollectionType = typeof Collections[number];
 
-type ServiceMap<ServiceT> = { [key in CollectionType]: ServiceT };
-
 type CollectionParam = { col: CollectionType };
 
-export { CollectionType, Collections, ServiceMap, CollectionParam };
+export { CollectionType, Collections, CollectionParam };
