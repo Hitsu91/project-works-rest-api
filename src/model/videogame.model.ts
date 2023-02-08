@@ -39,6 +39,9 @@ export class Videogame {
 
   @prop()
   pegi: string;
+
+  @prop()
+  coverImage: string;
 }
 
 const makeVideogameModel = (collectionName: string) =>

@@ -24,6 +24,7 @@ export const VideogameSchema = object({
     text: string().array().optional(),
   }),
   pegi: string().optional(),
+  coverImage: string().optional(),
 });
 
 export type PostVideogameInput = TypeOf<typeof VideogameSchema>;
