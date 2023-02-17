@@ -6,7 +6,7 @@ const loggerMiddleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  log.info(`Request at ${req.path}`);
+  log.info(`Request at ${req.path} from ${req.ip} [${req.ips.join(', ')}]`);
   return next();
 };
 
